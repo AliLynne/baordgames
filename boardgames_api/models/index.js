@@ -4,4 +4,5 @@ mongoose.connect('mongodb://localhost/boardgames-api');
 
 mongoose.Promise = Promise;
 
-module.exports.Boardgame = require("./boardgame");
+module.exports.Boardgame = require('./boardgame');
+module.exports.User = require('./user')
