@@ -34,8 +34,8 @@ router.get('/:gameId', function(req, res){
     })
 })
 
-router.get('/:gameId', function(req, res) {
-    db.Boardgame.findById(req.params.gameId)
+router.put('/:gameId', function(req, res){
+    db.Boardgame.findOneAndUpdate({_id: req.params.gameId}, req.body, {new: true})
     .then(function(game){
         res.json(game)
     })
@@ -44,13 +44,13 @@ router.get('/:gameId', function(req, res) {
     })
 })
 
-router.put('/:gameId', function(req, res){
-    db.Boardgame.findOneAndUpdate({_id: req.params.gameId}, req.body, {new: true})
+router.delete('/:gameId', function(req, res){
+    db.Boardgame.remove({_id: req.params.gameId})
     .then(function(game){
-        res.json(game)
+        res.send('Deleted!')
     })
     .catch(function(err){
-        console.log(err)
+        res.send(err)
     })
 })
 
