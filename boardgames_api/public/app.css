@@ -29,7 +29,7 @@ header h2 {
 	margin: 50px auto 20px;
 }
 
-#todoInput {
+#gameInput {
 	width: 100%;
 	height: 60px;
 	background: none;
@@ -63,4 +63,15 @@ header h2 {
 
 .game:hover span{
 	opacity: 1;
+}
+
+li span {
+  float: right;
+  color: #c0392b;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+li span:hover {
+  color: #e74c3c
 }
