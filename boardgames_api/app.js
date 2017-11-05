@@ -8,11 +8,12 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 const boardgameRoutes = require('./routes/boardgames')
 
-// app.use(express.static(__dirname + '/views'))
+app.use(express.static(__dirname + '/views'))
+app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(req, res) {
-    // res.sendFile('index.html')
-    res.send('Hello from root route')
+    res.sendFile('index.html')
+    
 })
 
 app.use('/api/boardgames', boardgameRoutes)
