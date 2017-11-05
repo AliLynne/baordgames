@@ -22,7 +22,26 @@ router.post('/', function(req, res){
     .catch(function(err){
         console.log(err)
     })
-    
+})
+
+router.get('/:gameId', function(req, res){
+    db.Boardgame.findById(req.params.gameId)
+    .then(function(game){
+        res.json(game)
+    })
+    .catch(function(err){
+        console.log(err)
+    })
+})
+
+router.put('/:gameId', function(req, res){
+    db.Boardgame.findOneAndUpdate({_id: req.params.gameId}, req.body, {new: true})
+    .then(function(game){
+        res.json(game)
+    })
+    .catch(function(err){
+        console.log(err)
+    })
 })
 
 module.exports = router
